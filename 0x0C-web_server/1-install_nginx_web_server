@@ -1,12 +1,5 @@
 #!/usr/bin/env bash
-#Requirements 1)Install nginx on server
-#2) Nginx should be listening on port 80
-#3) When querying Nginx at its root / with a GET request (requesting a page) using curl, 
-#it must return a page that contains the string Hello World!
-
-#script that configures a new Ubuntu machine to respect above requirements 
-#You can’t use systemctl for restarting nginx
-
+#install nginx on server listening on port 80
 sudo apt-get -y update
 sudo apt-get -y install nginx
 sudo ufw allow 'Nginx HTTP'
