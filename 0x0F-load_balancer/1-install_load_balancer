@@ -9,5 +9,5 @@ sudo sh -c "echo 'frontend http
 backend my_web_server
     balance roundrobin
     server 528156-web-01 100.25.145.224:80
-    server 528156-web-02 18.209.225.166:80' >> /etc/haproxy/haproxy.cfg
+    server 528156-web-02 18.209.225.166:80' >> /etc/haproxy/haproxy.cfg"
 sudo service haproxy reload    
