@@ -3,11 +3,12 @@
 sudo apt-get update
 sudo apt install -y haproxy
 sudo sh -c "echo 'ENABLED=1' >> /etc/default/haproxy"
-sudo sh -c "echo 'frontend http
-    bind *:80
-    default_backend my_web_server
+sudo sh -c 'echo "frontend http
+     bind *:80
+     default_backend my_web_server
+
 backend my_web_server
     balance roundrobin
     server 528156-web-01 100.25.145.224:80
-    server 528156-web-02 18.209.225.166:80' >> /etc/haproxy/haproxy.cfg"
-sudo service haproxy reload    
+    server 528156-web-02 18.209.225.166:80" >> /etc/haproxy/haproxy.cfg'
+sudo service haproxy restart   
