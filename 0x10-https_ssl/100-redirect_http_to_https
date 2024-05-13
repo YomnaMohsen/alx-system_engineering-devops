@@ -1,7 +1,7 @@
 frontend http
         bind *:80
         bind *:443 ssl crt /etc/haproxy/certs/www.yomna.tech.pem
-        redirect scheme https code 301 if !{ ssl_fc }
+        http-request redirect scheme https code 301 if !{ ssl_fc }
         default_backend my_web_server
         
 backend my_web_server
