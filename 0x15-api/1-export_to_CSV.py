@@ -21,7 +21,7 @@ if __name__ == "__main__":
     for u_dict in res.json():
         task_csv.append(u_dict)
     with open('{}.csv'.format(id), 'w', newline='') as csvfile:
-        writer = csv.writer(csvfile, quoting=csv.QUOTE_ALL)
+        writer = csv.writer(csvfile, quoting=csv.QUOTE_NONNUMERIC)
         writer.writerow(["USER_ID", "USERNAME",
                         "TASK_COMPLETED_STATUS", "TASK_TITLE"])
         for task in task_csv:
