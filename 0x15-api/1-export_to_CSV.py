@@ -25,5 +25,5 @@ if __name__ == "__main__":
         writer.writerow(["USER_ID", "USERNAME",
                         "TASK_COMPLETED_STATUS", "TASK_TITLE"])
         for task in task_csv:
-            writer.writerow([id, f"{u_name}", f"{task.get('completed')}",
+            writer.writerow([f"{id}", f"{u_name}", f"{task.get('completed')}",
                             f"{task.get('title')}"])
