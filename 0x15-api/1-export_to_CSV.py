@@ -14,7 +14,7 @@ if __name__ == "__main__":
     res = requests.get(url+"/users/{}".format(id))
     if res.json() == {}:
         exit()
-    name = (res.json().get("name"))
+    u_name = (res.json().get("username"))
     url = url+"/users/{}/todos".format(id)
     res = requests.get(url)
     task_csv = []
@@ -25,5 +25,5 @@ if __name__ == "__main__":
         writer.writerow(["USER_ID", "USERNAME",
                         "TASK_COMPLETED_STATUS", "TASK_TITLE"])
         for task in task_csv:
-            writer.writerow([f"{id}", f"{name}", f"{task.get('completed')}",
+            writer.writerow([id, f"{u_name}", f"{task.get('completed')}",
                             f"{task.get('title')}"])
