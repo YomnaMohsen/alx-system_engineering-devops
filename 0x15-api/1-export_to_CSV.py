@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" a Python script that, using this REST API, for a given employee ID,
+"""a Python script that, using this REST API, for a given employee ID,
 returns information about his/her TODO list progress and export to csv."""
 
 if __name__ == "__main__":
@@ -25,5 +25,5 @@ if __name__ == "__main__":
         writer.writerow(["USER_ID", "USERNAME",
                         "TASK_COMPLETED_STATUS", "TASK_TITLE"])
         for task in task_csv:
-            writer.writerow([f"{id}", f"{name}", f"{task.get("completed")}",
-                            f"{task.get("title")}"])
+            writer.writerow([f"{id}", f"{name}", f"{task.get('completed')}",
+                            f"{task.get('title')}"])
