@@ -9,7 +9,7 @@ if __name__ == "__main__":
         id = int(sys.argv[1])
     except TypeError:
         exit()
-    url = "https://jsonplaceholder.typicode.com/"
+    url = "https://jsonplaceholder.typicode.com"
     res = requests.get(url+"/users/{}".format(id))
     if res.json() == {}:
         exit()

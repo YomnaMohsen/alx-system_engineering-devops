@@ -11,7 +11,7 @@ if __name__ == "__main__":
         exit()
     t_tasks = 0
     d_tasks = 0
-    url = "https://jsonplaceholder.typicode.com/"
+    url = "https://jsonplaceholder.typicode.com"
     res = requests.get(url+"/users/{}".format(id))
     if res.json() == {}:
         exit()
