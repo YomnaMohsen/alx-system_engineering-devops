@@ -8,12 +8,12 @@ if __name__ == "__main__":
     filename = "todo_all_employees.json"
     url = "https://jsonplaceholder.typicode.com"
     task_dict = {}
-    for u_id in range(1, 11):
+    for u_id in range (1, 11):
         res = requests.get(url+"/users/{}".format(u_id))
-        print(url+"/users/{}".format(u_id))
         if res.json() == {}:
             exit()
         u_name = (res.json().get("username"))
+
         res = requests.get(url+"/users/{}/todos".format(u_id))
         list_dict = []
         for u_dict in res.json():
