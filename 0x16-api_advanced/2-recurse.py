@@ -5,11 +5,12 @@ import requests
 
 def recurse(subreddit, hot_list=[], after="", count=0):
     """lists titles using pagination"""
-    headers = {"User-Agent": 'MyPythonCCode/1.0'}
+    headers = {"User-Agent": 'MyPythonscript/2.0'}
     url = f"https://www.reddit.com/r/{subreddit}/hot.json"
-    query_param = {"after": after, "count":count}
+    query_param = {"after": after, "count": count}
 
-    res = requests.get(url, headers=headers, params=query_param, allow_redirects=False)
+    res = requests.get(url, headers=headers, params=query_param,
+                       allow_redirects=False)
 
     if res.status_code == 404:
         return None
@@ -22,4 +23,4 @@ def recurse(subreddit, hot_list=[], after="", count=0):
 
     if after is not None:
         recurse(subreddit, hot_list, after, count)
-    return hot_list    
+    return hot_list
