@@ -3,24 +3,29 @@
 import requests
 
 
-def recurse(subreddit, hot_list=[], after="", count=0):
+def recurse(subreddit, hot_list=[], page=1, limit=100):
     """lists titles using pagination"""
-    headers = {"User-Agent": 'MyPythonscript/2.0'}
+    if len(hot_list) > limit:
+        return hot_list
+    
+    headers = {"User-Agent": 'Mozilla'}
     url = f"https://www.reddit.com/r/{subreddit}/hot.json"
-    query_param = {"after": after, "count": count}
+    query_param = {"page": page}
 
-    res = requests.get(url, headers=headers, params=query_param,
-                       allow_redirects=False)
+    res = requests.get(url, params=query_param, headers=headers)
 
     if res.status_code == 404:
         return None
-    page = res.json().get("data")
-    after = page.get("after")
-    count += page.get("dist")
+    
+    artc = res.json()
+    
+    if "data" in artc and "children" in artc["data"]:
+        articles = artc.get("data").get("children")
 
-    for p in page.get("children"):
+    for p in articles:
         hot_list.append(p.get("data").get("title"))
 
-    if after is not None:
-        recurse(subreddit, hot_list, after, count)
+    if "data" in artc and "after" in artc["data"]:
+        page += 1
+        recurse(subreddit, hot_list, page)
     return hot_list
