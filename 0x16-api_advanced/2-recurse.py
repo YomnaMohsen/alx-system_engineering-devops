@@ -22,5 +22,5 @@ def recurse(subreddit, hot_list=[], after=""):
         for p in articles:
             hot_list.append(p.get("data").get("title"))
             return hot_list
-    else:    
+    else:
         return None
